@@ -62,6 +62,22 @@ var Interpreter = function () {
         }
         return rule;
     }
+    
+    this.getParamsFromFact = function (query) {
+        var subquery = query.substring(query.indexOf("(") + 1, query.indexOf(")"));
+        return subquery.split(", ");
+    }
+    
+    this.getNewFactsFromRule = function (rule, query) {
+        //Obtiene los facts de la rule segun el query
+        var ruleParts = rule.split(":-");
+        var queryParam = this.getParamsFromFact(query);
+        var ruleParam = this.getParamsFromFact(ruleParts[0]);
+        var result = ruleParts[1];
+        for (var i = 0; i < ruleParam.length; i++) {
+            
+        }
+    }
 
     this.parseDB = function (database) {
         this.db = database;
