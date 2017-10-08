@@ -82,9 +82,19 @@ describe("Interpreter", function () {
         it('hijo(pepe, juan) should be true', function () {
             assert(interpreter.checkQuery('hijo(pepe, juan)'));
         });
-
-        // TODO: Add more tests
-
+    });
+    
+    describe('More tests', function () {
+        
+        it('Invalid database should charge NULL (1)', function () {
+            interpreter.parseDB(["", "varon(maria)."]);
+           assert(interpreter.db === null); 
+        });
+        
+        it('Invalid database should charge NULL (2)', function () {
+            interpreter.parseDB(["varon(maria).", "varon(maria)"]);
+           assert(interpreter.db === null); 
+        });
     });
 
 
