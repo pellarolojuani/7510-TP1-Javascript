@@ -157,7 +157,6 @@ var Interpreter = function () {
                     result = this.analizeRules(parsedFacts, parsedRules, query);
                     return result;
                 }
-
             } else {
                 return false;
             }
